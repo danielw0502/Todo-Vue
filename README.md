@@ -1,6 +1,7 @@
 # todo-vue
 
 > A Vue.js project
+> Thanks: https://www.youtube.com/watch?v=A5S23KS_-bU&t=2886s
 
 ## Build Setup
 
