@@ -65,18 +65,19 @@ export default {
     },
     methods:{
         removeTodo(id){
-            eventBus.$emit('removedTodo', id)
+            //eventBus.$emit('removedTodo', id)
+            this.$store.dispatch('deleteTodo', id)
         },
         editTodo(){
           this.beforeEditCache = this.title
           this.editing = true
        },
        doneEdit(){
-          if(this.title.trim().length == 0){
+          if(this.title.trim().length == ''){
               this.title = this.beforeEditCache 
           }
           this.editing = false
-          eventBus.$emit('finishedEdit', {
+          this.$store.dispatch('updateTodo',{
              'id': this.id,
               'title': this.title,
               'completed': this.completed,
@@ -92,7 +93,7 @@ export default {
       },
       handlePluralize(){
           this.title = this.title + 's'
-          eventBus.$emit('finishedEdit',{
+          this.$store.dispatch('updateTodo',{
               'id': this.id,
               'title': this.title,
               'completed': this.completed,
